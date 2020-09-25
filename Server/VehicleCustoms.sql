@@ -1,0 +1,1 @@
+ALTER TABLE `vehicle` ADD COLUMN animate varchar(1000) DEFAULT '[]' AFTER vehicle_texture;
