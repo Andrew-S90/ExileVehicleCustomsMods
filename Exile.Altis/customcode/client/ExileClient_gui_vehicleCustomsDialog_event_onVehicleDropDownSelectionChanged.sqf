@@ -19,6 +19,9 @@ _vehicleObject = objectFromNetId (_comboBox lbData _index);
 } forEach ExileClientVehicleCustomsOriginalVehicleTextures;
 
 //hide anims
+{
+	ExileClientVehicleCustomsOriginalVehicle animate [(_x select 0),(_x select 1),true];
+} forEach ExileClientVehicleCustomsOriginalVehicleComponents;
 
 _vehicleObject call ExileClient_gui_vehicleCustomsDialog_updateVehicle;
 [] spawn ExileClient_gui_vehicleCustomsDialog_event_camera_move;

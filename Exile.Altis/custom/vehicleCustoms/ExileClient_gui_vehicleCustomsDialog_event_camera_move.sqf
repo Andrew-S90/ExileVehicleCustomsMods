@@ -1,6 +1,6 @@
 
 ExileClientVehicleCustomsCamPosition = getPos ExileClientVehicleCustomsOriginalVehicle;
-ExileClientVehicleCustomsCamPosition = [(ExileClientVehicleCustomsCamPosition select 0) + 4.25,(ExileClientVehicleCustomsCamPosition select 1) + 4.25,(ExileClientVehicleCustomsCamPosition select 2) + 4.25];
+ExileClientVehicleCustomsCamPosition = [(ExileClientVehicleCustomsCamPosition select 0) + (cos(0)*ExileClientVehicleCustomsRadius),(ExileClientVehicleCustomsCamPosition select 1) + (sin(0)*ExileClientVehicleCustomsRadius),(ExileClientVehicleCustomsCamPosition select 2) + ExileClientVehicleCustomsPositionHeight];
 
 ExileClientVehicleCustomsCam camSetPos ExileClientVehicleCustomsCamPosition;
 ExileClientVehicleCustomsCam camPrepareTarget (getPos ExileClientVehicleCustomsOriginalVehicle); 

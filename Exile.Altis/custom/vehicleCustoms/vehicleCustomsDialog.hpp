@@ -236,6 +236,15 @@ class RscExileNewVehicleCustomsDialog
 			h="1.5 * safezoneH / 25";
 			colorBackground[]={0.050000001,0.050000001,0.050000001,0.69999999};
 		};
+		class ControlsBackground: DialogBackground
+		{
+			idc=1003;
+			x="0.5 * safezoneW / 40 + safezoneX";
+			y="21 * safezoneH / 25 + safezoneY";
+			w="8 * safezoneW / 40";
+			h="1.5 * safezoneH / 25";
+			colorBackground[]={0.050000001,0.050000001,0.050000001,0.69999999};
+		};
 	};
 	class controls
 	{
@@ -401,6 +410,186 @@ class RscExileNewVehicleCustomsDialog
 				shadow = "false";
 				align="center";
 			};
+		};
+		
+		class ClearModsButton: RscButtonMenuOK
+		{
+			idc=4006;
+			text="Clear Mods";
+			tooltip = "Removes all recent mod changes";
+			x="5 * safezoneW / 40 + safezoneX";
+			y="21.125 * safezoneH / 25 + safezoneY";
+			w="3 * safezoneW / 40";
+			h="0.5 * safezoneH / 25";
+			sizeEx="0.75 * safezoneH / 25";
+			onMouseButtonClick="_this call ExileClient_gui_vehicleCustomsDialog_event_onClearModsButtonClick";
+			textureNoShortcut = "#(argb,8,8,3)color(1,1,1,0)";
+			class Attributes
+			{
+				font = "PuristaLight";
+				color = "#E5E5E5";
+				shadow = "false";
+				align="center";
+				valign="middle";
+			};
+		};
+		
+		class ClearSkinsButton: RscButtonMenuOK
+		{
+			idc=4007;
+			text="Clear Skins";
+			tooltip = "Removes all recent skin changes";
+			x="5 * safezoneW / 40 + safezoneX";
+			y="21.875 * safezoneH / 25 + safezoneY";
+			w="3 * safezoneW / 40";
+			h="0.5 * safezoneH / 25";
+			sizeEx="0.75 * safezoneH / 25";
+			onMouseButtonClick="_this call ExileClient_gui_vehicleCustomsDialog_event_onClearSkinsButtonClick";
+			textureNoShortcut = "#(argb,8,8,3)color(1,1,1,0)";
+			class Attributes
+			{
+				font = "PuristaLight";
+				color = "#E5E5E5";
+				shadow = "false";
+				align="center";
+				valign="middle";
+			};
+		};
+		
+		class ButtonLeft 
+		{
+			type = 11;
+			idc = 4010;
+			colorBackground[]={0.050000001,0.050000001,0.050000001,0.69999999};
+			style = 48;
+			colorText[] = {1,1,1,1};
+			font = "PuristaMedium";
+			//sizeEx = (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1);
+			sizeEx="0.75 * safezoneH / 25";
+			x="0.5 * safezoneW / 40 + safezoneX";
+			y="21 * safezoneH / 25 + safezoneY";
+			w="1.5 * safezoneW / 40";
+			h="1.5 * safezoneH / 25";
+			shadow = 2;
+			show = 1;
+			url = "";
+			colorDisabled[] = {1,1,1,0.25};
+			tooltipColorText[] = {1,1,1,1};
+			tooltipColorBox[] = {1,1,1,1};
+			tooltipColorShade[] = {0,0,0,0.65};
+			color[] = {1,1,1,0.7};
+			colorActive[] = {1,1,1,1};
+			tooltip = "Camera Left";
+			soundClick[] = {"\A3\ui_f\data\sound\RscButton\soundClick",0.09,1.0};
+			soundEnter[] = {"\A3\ui_f\data\sound\RscButton\soundEnter",0.09,1.0};
+			soundEscape[] = {"\A3\ui_f\data\sound\RscButton\soundEscape",0.09,1.0};
+			soundPush[] = {"\A3\ui_f\data\sound\RscButton\soundPush",0.09,1.0};
+			text="custom\vehicleCustoms\textures\arrow_left_ca.paa";
+			onMouseButtonClick = "_this call ExileClient_gui_vehicleCustomsDialog_event_camera_move_left";
+		};
+		
+		class ButtonRight: ButtonLeft
+		{
+			idc=4011;
+			x="2.5 * safezoneW / 40 + safezoneX";
+			y="21 * safezoneH / 25 + safezoneY";
+			w="1.5 * safezoneW / 40";
+			h="1.5 * safezoneH / 25";
+			text="custom\vehicleCustoms\textures\arrow_right_ca.paa";
+			tooltip = "Camera Right";
+			//textureNoShortcut = "#(argb,8,8,3)color(1,1,1,0)";
+			/*class Attributes
+			{
+				font = "PuristaLight";
+				color = "#E5E5E5";
+				shadow = "false";
+				align="center";
+				valign="middle";
+			};*/
+			onMouseButtonClick = "_this call ExileClient_gui_vehicleCustomsDialog_event_camera_move_right";
+		};
+		
+		class ButtonUp: ButtonLeft
+		{
+			idc=4012;
+			x="1.5 * safezoneW / 40 + safezoneX";
+			y="20.625 * safezoneH / 25 + safezoneY";
+			w="1.5 * safezoneW / 40";
+			h="1.5 * safezoneH / 25";
+			text="custom\vehicleCustoms\textures\arrow_up_ca.paa";
+			tooltip = "Camera Up";
+			//textureNoShortcut = "#(argb,8,8,3)color(1,1,1,0)";
+			/*class Attributes
+			{
+				font = "PuristaLight";
+				color = "#E5E5E5";
+				shadow = "false";
+				align="center";
+				valign="middle";
+			};*/
+			onMouseButtonClick = "_this call ExileClient_gui_vehicleCustomsDialog_event_camera_move_up";
+		};
+		
+		class ButtonDown: ButtonLeft
+		{
+			idc=4013;
+			x="1.5 * safezoneW / 40 + safezoneX";
+			y="21.375 * safezoneH / 25 + safezoneY";
+			w="1.5 * safezoneW / 40";
+			h="1.5 * safezoneH / 25";
+			text="custom\vehicleCustoms\textures\arrow_down_ca.paa";
+			tooltip = "Camera Down";
+			//textureNoShortcut = "#(argb,8,8,3)color(1,1,1,0)";
+			/*class Attributes
+			{
+				font = "PuristaLight";
+				color = "#E5E5E5";
+				shadow = "false";
+				align="center";
+				valign="middle";
+			};*/
+			onMouseButtonClick = "_this call ExileClient_gui_vehicleCustomsDialog_event_camera_move_down";
+		};
+		
+		class ZoomOut: ButtonLeft
+		{
+			idc=4014;
+			x="3.875 * safezoneW / 40 + safezoneX";
+			y="21.5 * safezoneH / 25 + safezoneY";
+			w="1 * safezoneW / 40";
+			h="1 * safezoneH / 25";
+			text="a3\ui_f\data\GUI\Rsc\RscDisplayMultiplayer\arrow_down_ca.paa";
+			tooltip = "Zoom Out";
+			//textureNoShortcut = "#(argb,8,8,3)color(1,1,1,0)";
+			/*class Attributes
+			{
+				font = "PuristaLight";
+				color = "#E5E5E5";
+				shadow = "false";
+				align="center";
+				valign="middle";
+			};*/
+			onMouseButtonClick = "_this call ExileClient_gui_vehicleCustomsDialog_event_camera_zoom_out";
+		};
+		class ZoomIn: ZoomOut
+		{
+			idc=4015;
+			x="3.875 * safezoneW / 40 + safezoneX";
+			y="21 * safezoneH / 25 + safezoneY";
+			w="1 * safezoneW / 40";
+			h="1 * safezoneH / 25";
+			text="a3\ui_f\data\GUI\Rsc\RscDisplayMultiplayer\arrow_up_ca.paa";
+			tooltip = "Zoom In";
+			//textureNoShortcut = "#(argb,8,8,3)color(1,1,1,0)";
+			/*class Attributes
+			{
+				font = "PuristaLight";
+				color = "#E5E5E5";
+				shadow = "false";
+				align="center";
+				valign="middle";
+			};*/
+			onMouseButtonClick = "_this call ExileClient_gui_vehicleCustomsDialog_event_camera_zoom_in";
 		};
 	};
 };
