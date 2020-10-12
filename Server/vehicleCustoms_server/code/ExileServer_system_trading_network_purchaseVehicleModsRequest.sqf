@@ -1,12 +1,9 @@
-/**
- * ExileServer_system_trading_network_purchaseVehicleSkinRequest
+ /*
  *
- * Exile Mod
- * www.exilemod.com
- * © 2015 Exile Mod Team
+ * Author: Andrew_S90
  *
- * This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. 
- * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
+ * This work is protected by Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). 
+ *
  */
  
 private["_sessionID", "_parameters", "_vehicleNetID", "_skinTextures", "_playerObject", "_vehicleObject", "_vehicleParentClass", "_salesPrice", "_skinVariations", "_availableSkinTexture", "_playerMoney", "_skinMaterials", "_skinClassName", "_vehicleID", "_logging", "_traderLog", "_responseCode"];
