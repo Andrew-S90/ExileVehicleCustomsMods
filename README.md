@@ -9,6 +9,7 @@ Showcase video:
 
 This was developed on a test server with EXTDB2, no infistar and no battleye.
 
+Your exile.mapname (mission) must be pbo'd for this to work until arma updates next!
 
 # Install Instructions:
 
