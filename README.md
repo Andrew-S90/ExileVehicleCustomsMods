@@ -5,7 +5,7 @@ You can also combine a "Paintshop" like global skins for this as well with the C
 
 If you trade for items they will be gone and save for that restart so the stock there is what you get.
 
-Showcase video: 
+Showcase video: https://www.youtube.com/watch?v=5r584qykIiM
 
 This was developed on a test server with EXTDB2, no infistar and no battleye.
 
