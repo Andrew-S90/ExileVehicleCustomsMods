@@ -38,16 +38,15 @@ try
 	_bypass = false;
 	_salesPrice = -1;
 	_vehicleCustomsMaster = getArray(missionConfigFile >> "CfgVehicleCustomsMaster" >> "skins");
-	diag_log format["ExileServer_system_trading_network_purchaseVehicleSkinRequest _skinTextures %1",_skinTextures];
+	
 	{
 		_availableSkinTexture = _x select 2;
-		diag_log format["ExileServer_system_trading_network_purchaseVehicleSkinRequest _availableSkinTexture %1",_availableSkinTexture];
-		diag_log format["ExileServer_system_trading_network_purchaseVehicleSkinRequest (_availableSkinTexture select 0) %1 (_skinTextures select 0) %2",(_availableSkinTexture select 0),(_skinTextures select 0)];
-		if ((toLower(_availableSkinTexture select 0)) isEqualTo (toLower(_skinTextures select 0))) exitWith
+		private _availSkin = (toLower(_availableSkinTexture select 0)) splitString "\";
+		private _skin = (toLower(_skinTextures select 0)) splitString "\";
+		if ((_availSkin select ((count _availSkin)-1)) isEqualTo (_skin select ((count _skin)-1))) exitWith
 		{
 			_bypass = true;
 			_salesPrice = _x select 0;
-			diag_log format["ExileServer_system_trading_network_purchaseVehicleSkinRequest _bypass %1 _salesPrice %2",_bypass,_salesPrice];
 		};
 	} forEach _vehicleCustomsMaster;
 	_vehicleParentClass = configName (inheritsFrom (configFile >> "CfgVehicles" >> (typeOf _vehicleObject)));
@@ -92,7 +91,7 @@ try
 	if (_logging isEqualTo 1) then
 	{
 		_traderLog = format ["PLAYER: ( %1 ) %2 PURCHASED VEHICLE SKIN %3 (%4) FOR %5 POPTABS | PLAYER TOTAL MONEY: %6",getPlayerUID _playerObject,_playerObject,_skinTextures,_vehicleParentClass,_salesPrice,_playerMoney];
-		"extDB3" callExtension format["1:TRADING:%1",_traderLog];
+		"extDB2" callExtension format["1:TRADING:%1",_traderLog];
 	};
 }
 catch 

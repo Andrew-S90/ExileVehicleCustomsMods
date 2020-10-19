@@ -47,15 +47,6 @@ if (_localVehicles isEqualTo []) exitWith
 	["ErrorTitleAndText", ["Whoops!", "Park within 50m and get in as driver first."]] call ExileClient_gui_toaster_addTemplateToast;
 };
 {
-	/*_parentClassName = configName (inheritsFrom (configFile >> "CfgVehicles" >> (typeOf _x)));
-	if (isClass (missionConfigFile >> "CfgVehicleCustoms" >> _parentClassName) ) then
-	{
-		_customizableVehicles pushBackUnique _x;
-	};
-	if (isClass (missionConfigFile >> "CfgVehicleCustoms" >> (typeOf _x)) ) then
-	{
-		_customizableVehicles pushBackUnique _x;
-	};*/
 	_customizableVehicles pushBackUnique _x;
 }
 forEach _localVehicles;
@@ -63,7 +54,6 @@ if (_customizableVehicles isEqualTo []) exitWith
 {
 	["ErrorTitleAndText", ["Whoops!", "None of your vehicles can be customized."]] call ExileClient_gui_toaster_addTemplateToast;
 };
-//ExileClientMoonLight setLightBrightness 5;
 createDialog "RscExileNewVehicleCustomsDialog";
 _dialog = uiNameSpace getVariable ["RscExileVehicleCustomsDialog", displayNull];
 uiNamespace setVariable["ExileCurrentTrader", _traderObject];
@@ -80,6 +70,4 @@ forEach _customizableVehicles;
 _vehicleSkinListBox = _dialog displayCtrl 4001;
 _vehicleSkinListBox ctrlSetEventHandler ["MouseButtonDblClick", "_this call ExileClient_gui_vehicleCustomsDialog_event_onSkinListBoxMouseDoubleClick"];
 (_customizableVehicles select 0) call ExileClient_gui_vehicleCustomsDialog_updateVehicle;
-//call ExileClient_gui_modelBox_create;
-//(typeOf (_customizableVehicles select 0)) call ExileClient_gui_modelBox_update;
 _vehicleDropDown lbSetCurSel 0;
